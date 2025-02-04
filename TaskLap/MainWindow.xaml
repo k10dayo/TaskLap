@@ -4,9 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskLap"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        mc:Ignorable="d" Topmost="True"
+        Title="MainWindow" Height="150" Width="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+                <TextBlock Text="開始時間：現在作業"/>
+                <Button Content="開始or終了" HorizontalAlignment="Right"/>
+        </Grid>
+        <DockPanel>
+            <TextBox MinLines="2" Height="36" AcceptsReturn="True" TextAlignment="Center" VerticalContentAlignment="Center" DockPanel.Dock="Top"/>
+            <Grid>
+                <Button Content="ラップ" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Content="記録" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </Grid>
+        </DockPanel>
+    </DockPanel>
 </Window>
