@@ -5,17 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskLap"
         mc:Ignorable="d" Topmost="True"
-        Title="MainWindow" Height="150" Width="300">
+        Title="MainWindow" Height="150" Width="300"
+        ResizeMode="NoResize">
     <DockPanel>
-        <Grid DockPanel.Dock="Top">
-                <TextBlock Text="開始時間：現在作業"/>
-                <Button Content="開始or終了" HorizontalAlignment="Right"/>
-        </Grid>
-        <DockPanel>
-            <TextBox MinLines="2" Height="36" AcceptsReturn="True" TextAlignment="Center" VerticalContentAlignment="Center" DockPanel.Dock="Top"/>
+        <StackPanel DockPanel.Dock="Top">
             <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBlock x:Name="CurrentTicket" Text="A231-779" Width="70"/>
+                    <TextBlock x:Name="LapStartTime" Text="0:00" Margin="0"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right">
+                    <TextBlock x:Name="ElapsedTime" Text="経過時間"/>
+                </StackPanel>
+            </Grid>
+            <TextBlock x:Name="CurrentWork" Text="現在作業" TextAlignment="Center"/>
+            <Separator/>
+        </StackPanel>        
+        <DockPanel Margin="0 5 0 0">
+            <StackPanel DockPanel.Dock="Top">
+                <DockPanel>
+                    <TextBlock Text="チケット: A231-" DockPanel.Dock="Left"/>
+                    <TextBox x:Name="InputTicket" TextAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="InputTicket_PreviewTextInput"/>
+                </DockPanel>
+                <TextBox x:Name="InputWork" Height="25" TextAlignment="Center" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown"/>
+            </StackPanel>
+            <Grid>
+                <Button Content="開始or終了" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Button Content="ラップ" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button Content="記録" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Button Content="記録" HorizontalAlignment="Right" VerticalAlignment="Center" Click="LapRecordButtonClick"/>
             </Grid>
         </DockPanel>
     </DockPanel>
