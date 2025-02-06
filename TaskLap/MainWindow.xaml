@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskLap"
         mc:Ignorable="d" Topmost="True"
-        Title="MainWindow" Height="150" Width="300"
+        Title="MainWindow" Height="200" Width="300"
         ResizeMode="NoResize">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <TextBlock x:Name="CurrentTicket" Text="A231-779" Width="70"/>
+                    <TextBlock x:Name="CurrentTicket" Text="B000-000" Width="70"/>
                     <TextBlock x:Name="LapStartTime" Text="0:00" Margin="0"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right">
@@ -19,6 +19,7 @@
                 </StackPanel>
             </Grid>
             <TextBlock x:Name="CurrentWork" Text="現在作業" TextAlignment="Center"/>
+            <TextBox x:Name="Comment" Height="30" AcceptsReturn="True" TextWrapping="Wrap" TextAlignment="Center" VerticalContentAlignment="Center"/>
             <Separator/>
         </StackPanel>        
         <DockPanel Margin="0 5 0 0">
@@ -30,9 +31,9 @@
                 <TextBox x:Name="InputWork" Height="25" TextAlignment="Center" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown"/>
             </StackPanel>
             <Grid>
-                <Button Content="開始or終了" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content=" 開始or終了 " HorizontalAlignment="Left" VerticalAlignment="Center" Click="StartOrEndButtonClick"/>
                 <Button Content="ラップ" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Button Content="記録" HorizontalAlignment="Right" VerticalAlignment="Center" Click="LapRecordButtonClick"/>
+                <Button Content=" 記録 " HorizontalAlignment="Right" VerticalAlignment="Center" Click="LapRecordButtonClick"/>
             </Grid>
         </DockPanel>
     </DockPanel>

@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:TaskLap"
         mc:Ignorable="d"
         Title="LapRecordWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ListView x:Name="LapRecordList" Width="700" Height="400">
+            <!-- 列のヘッダー -->
+            <ListView.View>
+                <GridView>
+                    <!-- タイムスタンプ -->
+                    <GridViewColumn Header="Timestamp" DisplayMemberBinding="{Binding Timestamp}" Width="80"/>
+                    <!-- チケット -->
+                    <GridViewColumn Header="Ticket" DisplayMemberBinding="{Binding Ticket}" Width="50"/>
+                    <!-- 開始時間 -->
+                    <GridViewColumn Header="Start Time" DisplayMemberBinding="{Binding StartTime}" Width="50"/>
+                    <!-- 経過時間 -->
+                    <GridViewColumn Header="Elapsed Time" DisplayMemberBinding="{Binding ElapsedTime}" Width="50"/>
+                    <!-- 作業 -->
+                    <GridViewColumn Header="Work" DisplayMemberBinding="{Binding Work}" Width="200"/>
+                    <!-- コメント -->
+                    <GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Comment}" Width="300"/>
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
+
 </Window>
