@@ -164,5 +164,19 @@ namespace TaskLap
             Comment.Text = string.Empty;
 
         }
+
+        private void ResetButtonClick(object sender, RoutedEventArgs e)
+        {
+            ResetCsvFile(filePath);
+        }
+
+        public static void ResetCsvFile(string filePath)
+        {
+            // ヘッダー行を定義（必要に応じて変更）
+            string header = "Timestamp,Ticket,StartTime,Work,Comment,ElapsedTime\n";
+
+            // ファイルをヘッダーのみの状態にリセット
+            File.WriteAllText(filePath, header);
+        }
     }
 }

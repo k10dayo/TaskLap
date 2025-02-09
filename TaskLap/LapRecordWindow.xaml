@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="LapRecordWindow" Height="450" Width="800">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ListView x:Name="LapRecordList" Width="700" Height="400">
+        <ListView x:Name="LapRecordList" Width="700" Height="400"
+                  SelectionChanged="LapRecordList_SelectionChanged">
             <!-- 列のヘッダー -->
             <ListView.View>
                 <GridView>
@@ -18,11 +19,11 @@
                     <!-- 開始時間 -->
                     <GridViewColumn Header="Start Time" DisplayMemberBinding="{Binding StartTime}" Width="50"/>
                     <!-- 経過時間 -->
-                    <GridViewColumn Header="Elapsed Time" DisplayMemberBinding="{Binding ElapsedTime}" Width="50"/>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding ElapsedTime}" Width="50"/>
                     <!-- 作業 -->
-                    <GridViewColumn Header="Work" DisplayMemberBinding="{Binding Work}" Width="200"/>
+                    <GridViewColumn Header="Work" DisplayMemberBinding="{Binding Work}" Width="500"/>
                     <!-- コメント -->
-                    <GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Comment}" Width="300"/>
+                    <!--<GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Comment}" Width="300" />-->
                     
                 </GridView>
             </ListView.View>

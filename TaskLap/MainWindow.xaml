@@ -31,8 +31,8 @@
                 <TextBox x:Name="InputWork" Height="25" TextAlignment="Center" VerticalContentAlignment="Center" KeyDown="TextBox_KeyDown"/>
             </StackPanel>
             <Grid>
-                <Button Content=" 開始or終了 " HorizontalAlignment="Left" VerticalAlignment="Center" Click="StartOrEndButtonClick"/>
-                <Button Content="ラップ" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Content="初期化" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ResetButtonClick"/>
+                <Button Content=" 終了 " Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartOrEndButtonClick"/>                
                 <Button Content=" 記録 " HorizontalAlignment="Right" VerticalAlignment="Center" Click="LapRecordButtonClick"/>
             </Grid>
         </DockPanel>

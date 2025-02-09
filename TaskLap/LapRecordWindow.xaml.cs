@@ -1,11 +1,9 @@
 ﻿using System.Diagnostics;
 using System;
-using System;
 using System.IO;
-using System.Diagnostics;
 using System.Windows;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace TaskLap
 {
@@ -47,23 +45,30 @@ namespace TaskLap
 
                 using (var reader = new StreamReader(filePath))
                 {
+                    bool isFirst = true;
+
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
+                        if (isFirst)
+                        {
+                            isFirst = false;
+                            continue;
+                        }
                         if (line != null)
                         {
                             // CSVの各行を分割
                             var values = line.Split(',');
 
                             if (values.Length >= 5)
-                            {
+                            {                              
                                 // LapRecordオブジェクトを作成してリストに追加
                                 LapRecords.Add(new LapRecord
                                 {
                                     Timestamp = values[0],
                                     Ticket = values[1],
                                     StartTime = values[2],
-                                    //ElapsedTime = values[5],
+                                    ElapsedTime = values[5],
                                     Work = values[3],
                                     Comment = values[4],                                    
                                 });
@@ -75,6 +80,17 @@ namespace TaskLap
             catch (Exception ex)
             {
                 Debug.Print("CSV読み込みエラー: " + ex.Message);
+            }
+        }
+
+        // 選択された行のコメントを表示
+        private void LapRecordList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (LapRecordList.SelectedItem is LapRecord selectedRecord)
+            {
+                DetailDialog dialog = new DetailDialog(selectedRecord.Timestamp, selectedRecord.Ticket, selectedRecord.StartTime, selectedRecord.ElapsedTime, selectedRecord.Work, selectedRecord.Comment);
+
+                dialog.Show();
             }
         }
     }
